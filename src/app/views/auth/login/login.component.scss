@@ -1,0 +1,28 @@
+.content-login {
+  display: table;
+  height: 100%;
+  margin: 0 auto;
+  width: 370px;
+}
+
+.login {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.login-form-margin {
+  margin-bottom: 16px;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+.avatar {
+  margin-bottom: 30px;
+}

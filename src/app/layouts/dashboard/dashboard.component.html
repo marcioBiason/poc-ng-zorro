@@ -7,7 +7,7 @@
     nzBreakpoint="sm"
     [(nzCollapsed)]="isCollapsed"
     [nzTrigger]="null"
-    [nzCollapsedWidth]="80"
+    [nzCollapsedWidth]="collapsedWidth"
   >
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
@@ -29,7 +29,7 @@
           </li>
         </ul>
       </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+      <li nz-submenu nzTitle="Form" nzIcon="form">
         <ul>
           <li nz-menu-item nzMatchRouter>
             <a>Basic Form</a>
@@ -40,10 +40,32 @@
   </nz-sider>
   <nz-layout>
     <nz-header>
-      <div class="app-header">
+      <div class="app-header" nz-row nzJustify="space-between" nzAlign="middle">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
         </span>
+        <div>
+          <a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+            <nz-avatar nzIcon="user" class="avatar"></nz-avatar>
+          </a>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu class="menu">
+              <li nz-menu-item>
+                <i nz-icon [nzType]="'user'" nzTheme="outline" style="margin-right: 5px"></i>
+                Perfil
+              </li>
+              <li nz-menu-item>
+                <i nz-icon nzType="pie-chart" nzTheme="outline" style="margin-right: 5px"></i>
+                Faturamento
+              </li>
+              <li nz-menu-divider></li>
+              <li nz-menu-item>
+                <i nz-icon nzType="logout" nzTheme="outline" style="margin-right: 5px"></i>
+                Sair
+              </li>
+            </ul>
+          </nz-dropdown-menu>
+        </div>
       </div>
     </nz-header>
     <nz-content>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,7 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  isCollapsed = false;
+  public isCollapsed = false;
+  public collapsedWidth = 80;
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    event.target.innerWidth;
+    if (event.target.innerWidth < 1200) {
+      this.collapsedWidth = 0;
+    } else {
+      this.collapsedWidth = 80;
+    }
+  }
 
   constructor() {}
 }
